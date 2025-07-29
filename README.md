@@ -59,8 +59,8 @@ npm run preview
 
 このサイトはGitHub Pagesで自動的にデプロイされます。
 
-- **公開URL**: https://matsu-oyaji.github.io/matsu-oyaji-web-vite/
-- **リポジトリ**: https://github.com/matsu-oyaji/matsu-oyaji-web-vite
+- **公開URL**: https://matsu-oyaji.github.io/
+- **リポジトリ**: https://github.com/matsu-oyaji/matsu-oyaji.github.io
 - **自動デプロイ**: `main`ブランチへのpushで自動実行
 - **手動デプロイ**: GitHubのActionsタブから手動実行可能
 
