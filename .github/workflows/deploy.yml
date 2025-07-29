@@ -29,6 +29,11 @@ jobs:
         with:
           fetch-depth: 0 # 履歴が必要な場合は0を指定
 
+      - name: Setup system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -38,11 +43,15 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Clean install dependencies
+      - name: Install dependencies with Rollup fix
         run: |
           npm cache clean --force
           rm -rf node_modules package-lock.json
-          npm install --no-optional
+          npm install
+          # Rollupネイティブバイナリを明示的にインストール
+          npm install @rollup/rollup-linux-x64-gnu --save-optional
+          # 再度インストールしてバイナリを確実に配置
+          npm install --force
 
       - name: Build with VitePress
         run: |
