@@ -60,14 +60,22 @@ npm run preview
 このサイトはGitHub Pagesで自動的にデプロイされます。
 
 - **公開URL**: https://matsu-oyaji.github.io/matsu-oyaji-web-vite/
+- **リポジトリ**: https://github.com/matsu-oyaji/matsu-oyaji-web-vite
 - **自動デプロイ**: `main`ブランチへのpushで自動実行
 - **手動デプロイ**: GitHubのActionsタブから手動実行可能
 
 #### デプロイの流れ
 1. `main`ブランチにコードをpush
-2. GitHub Actionsが自動的にビルドを実行
-3. 生成されたファイルがGitHub Pagesにデプロイ
-4. 数分後にサイトが更新される
+2. GitHub Actionsが自動的にビルドを実行（`.github/workflows/deploy.yml`）
+3. VitePressでサイトをビルド
+4. 生成されたファイルがGitHub Pagesにデプロイ
+5. 数分後にサイトが更新される
+
+#### 初回セットアップ（必要に応じて）
+GitHubリポジトリでPages設定を確認：
+1. リポジトリの「Settings」→「Pages」
+2. Source: 「GitHub Actions」を選択
+3. カスタムドメインが必要な場合は設定
 
 ### ローカルビルド
 
