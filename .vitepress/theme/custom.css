@@ -1,0 +1,385 @@
+/* カスタムCSS - 背景色を白に設定 */
+
+/* 全体の背景色 */
+:root {
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #ffffff;
+  --vp-c-bg-soft: #ffffff;
+}
+
+/* ボディ全体の背景色 */
+body {
+  background-color: #ffffff !important;
+}
+
+/* メインコンテンツエリアの背景色 */
+.VPContent {
+  background-color: #ffffff !important;
+}
+
+/* サイドバーの背景色 */
+.VPSidebar {
+  background-color: #ffffff !important;
+}
+
+/* ナビゲーションバーの背景色 */
+.VPNav {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* ダークモードでも白背景を維持 */
+.dark {
+  --vp-c-bg: #ffffff !important;
+  --vp-c-bg-alt: #ffffff !important;
+  --vp-c-bg-soft: #ffffff !important;
+}
+
+.dark body {
+  background-color: #ffffff !important;
+  color: #213547 !important;
+}
+
+.dark .VPContent {
+  background-color: #ffffff !important;
+}
+
+.dark .VPSidebar {
+  background-color: #ffffff !important;
+}
+
+.dark .VPNav {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* ヒーロー画像のスタイル調整 */
+.VPHero {
+  padding: 70px 24px 8px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.VPHero .container {
+  flex-direction: column !important;
+  text-align: center !important;
+  max-width: 1152px !important;
+  margin: 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.VPHero .main {
+  order: 2 !important;
+  text-align: center !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.VPHero .image {
+  order: 1 !important;
+  margin: 0.5rem auto 2.8rem auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  min-height: auto !important;
+}
+
+.VPHero .image-src {
+  max-width: 100% !important;
+  max-height: 400px !important;
+  width: auto !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* VitePressのimage-containerの高さを調整 */
+.VPHero .image-container {
+  height: auto !important;
+  min-height: auto !important;
+  max-height: 400px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* モバイルでの画像コンテナ調整 */
+@media (max-width: 767px) {
+  .VPHero .image-container {
+    max-height: 300px !important;
+  }
+}
+
+/* デスクトップでの画像コンテナ調整 */
+@media (min-width: 768px) {
+  .VPHero .image-container {
+    max-height: 450px !important;
+  }
+}
+
+/* ヒーローセクションのテキストスタイル */
+.VPHero .name,
+.VPHero .name .clip {
+  font-size: 2.5rem !important;
+  font-weight: 600 !important;
+  color: #2c3e50 !important;
+  text-align: center !important;
+  margin: 0 auto 0.8rem auto !important;
+  line-height: 1.2 !important;
+  width: 100% !important;
+  display: block !important;
+  max-width: none !important;
+}
+
+.VPHero .text {
+  font-size: 1.1rem !important;
+  color: #555555 !important;
+  max-width: 900px !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  line-height: 1.6 !important;
+  font-weight: 400 !important;
+  padding: 0 1rem !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+/* VitePressのデフォルトスタイルを強制的に上書き */
+.VPHero .title {
+  text-align: center !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.VPHero h1 {
+  text-align: center !important;
+  margin: 0 auto 1.5rem auto !important;
+  width: 100% !important;
+}
+
+/* より強力なセレクターでVitePressのデフォルトスタイルを上書き */
+.Layout .VPHero .name,
+.Layout .VPHero .name .clip,
+.VPHome .VPHero .name,
+.VPHome .VPHero .name .clip {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+  display: block !important;
+}
+
+.Layout .VPHero .text,
+.VPHome .VPHero .text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* flex要素での中央寄せを強制 */
+.VPHero .main > * {
+  align-self: center !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ヘッダーとの重なり問題を解決 */
+.VPNavBar {
+  z-index: 10 !important;
+}
+
+.VPHero {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* レスポンシブ対応 */
+@media (min-width: 768px) {
+  .VPHero {
+    padding: 90px 24px 16px !important;
+  }
+  
+  .VPHero .container {
+    flex-direction: column !important;
+    text-align: center !important;
+    align-items: center !important;
+  }
+  
+  .VPHero .main {
+    order: 2 !important;
+    max-width: none !important;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  .VPHero .image {
+    order: 1 !important;
+    margin: 0.8rem auto 2.6rem auto !important;
+  }
+  
+  .VPHero .image-src {
+    max-width: 100% !important;
+    max-height: 500px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  
+  .VPHero .name,
+  .VPHero .name .clip {
+    font-size: 3rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto 1.2rem auto !important;
+  }
+  
+  .VPHero .text {
+    font-size: 1.25rem !important;
+    max-width: 700px !important;
+    text-align: center !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+  
+  .VPHero .title {
+    text-align: center !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+  
+  .VPHero h1 {
+    text-align: center !important;
+    margin: 0 auto 1.5rem auto !important;
+    width: 100% !important;
+  }
+}
+
+/* フッタースタイル */
+.VPDocFooter {
+  text-align: center;
+  padding: 2rem 0;
+  border-top: 1px solid #e1e5e9;
+  color: #6b7280;
+  background-color: #ffffff !important;
+}
+
+/* カスタムブロック（tip, warning等）の文字色改善 */
+.custom-block {
+  color: #2c3e50 !important;
+}
+
+.custom-block.tip {
+  border-color: #42b883 !important;
+}
+
+.custom-block.tip .custom-block-title {
+  color: #2c3e50 !important;
+  font-weight: 600 !important;
+}
+
+.custom-block p {
+  color: #2c3e50 !important;
+}
+
+.custom-block a {
+  color: #3eaf7c !important;
+  font-weight: 500 !important;
+}
+
+.custom-block a:hover {
+  color: #4abf8a !important;
+}
+
+/* ヘッダー・ナビゲーションの文字色改善 */
+.VPNavBar .title {
+  color: #2c3e50 !important;
+}
+
+.VPNavBar .VPNavBarTitle .title {
+  color: #2c3e50 !important;
+  font-weight: 600 !important;
+}
+
+.VPNavBar .content .VPNavBarMenu .VPNavBarMenuLink {
+  color: #2c3e50 !important;
+  font-weight: 500 !important;
+}
+
+.VPNavBar .content .VPNavBarMenu .VPNavBarMenuLink:hover {
+  color: #3eaf7c !important;
+}
+
+/* メインコンテンツの文字色改善 */
+.VPContent .content h1,
+.VPContent .content h2,
+.VPContent .content h3,
+.VPContent .content h4,
+.VPContent .content h5,
+.VPContent .content h6 {
+  color: #2c3e50 !important;
+}
+
+.VPContent .content p {
+  color: #2c3e50 !important;
+  line-height: 1.7 !important;
+}
+
+.VPContent .content a {
+  color: #3eaf7c !important;
+  font-weight: 500 !important;
+}
+
+.VPContent .content a:hover {
+  color: #4abf8a !important;
+}
+
+/* テーブルの文字色改善 */
+.VPContent .content table {
+  color: #2c3e50 !important;
+}
+
+.VPContent .content table th {
+  color: #2c3e50 !important;
+  font-weight: 600 !important;
+  background-color: #f8f9fa !important;
+}
+
+.VPContent .content table td {
+  color: #2c3e50 !important;
+}
+
+/* リストの文字色改善 */
+.VPContent .content ul li,
+.VPContent .content ol li {
+  color: #2c3e50 !important;
+}
+
+/* ヒーローとメインコンテンツ間のスペース調整 */
+.VPContent .content {
+  padding-top: 16px !important;
+}
+
+.VPContent .content > h2:first-child,
+.VPContent .content > h1:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ホーム画面のコンテンツ間隔調整 */
+.VPHome .VPContent {
+  padding-top: 0 !important;
+}
+
+.VPHome .VPContent .content {
+  padding-top: 20px !important;
+}
+
+/* モバイル専用の調整 */
+@media (max-width: 767px) {
+  .VPHome .VPContent .content {
+    padding-top: 16px !important;
+  }
+}
