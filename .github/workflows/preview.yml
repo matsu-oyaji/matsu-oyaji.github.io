@@ -30,7 +30,7 @@ jobs:
           npm cache clean --force
           rm -rf node_modules package-lock.json
           npm install
-          npm install @rollup/rollup-linux-x64-gnu --save-optional
+          npm install rollup
           npm install --force
 
       - name: Build
