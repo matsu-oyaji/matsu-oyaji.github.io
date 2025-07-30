@@ -38,8 +38,12 @@ jobs:
           VITE_BASE_PATH: "/pr-${{ github.event.number }}/"
         run: |
           # PRプレビュー用にbase pathを設定してビルド
+          echo "VITE_BASE_PATH is set to: $VITE_BASE_PATH"
+          echo "Building with base path: /pr-${{ github.event.number }}/"
           npm run build
           touch .vitepress/dist/.nojekyll
+          echo "Build completed. Checking index.html:"
+          head -10 .vitepress/dist/index.html
 
       - name: Deploy to GitHub Pages (PR Preview)
         uses: peaceiris/actions-gh-pages@v3

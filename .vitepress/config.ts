@@ -3,6 +3,10 @@ import { defineConfig } from 'vitepress'
 // 環境変数からベースパスを取得（PRプレビュー時に使用）
 const base = process.env.VITE_BASE_PATH || '/'
 
+// デバッグ用ログ
+console.log('VITE_BASE_PATH:', process.env.VITE_BASE_PATH)
+console.log('Using base path:', base)
+
 export default defineConfig({
   title: "松ケ丘小学校おやじの会",
   description: "「できる時に、できる事を、できる人が」を合言葉に、児童、地域にかかわりながら、和気あいあい、楽しく活動している会です。",
