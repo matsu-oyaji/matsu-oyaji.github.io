@@ -1,21 +1,32 @@
 import { defineConfig } from 'vitepress'
 
+// 環境変数からベースパスを取得（PRプレビュー時に使用）
+// PRプレビューの場合はルートパスを使用（サブディレクトリ配信の問題を回避）
+const base = process.env.VITE_BASE_PATH === '/pr-1/' ? '/' : (process.env.VITE_BASE_PATH || '/')
+
+// デバッグ用ログ
+console.log('VITE_BASE_PATH:', process.env.VITE_BASE_PATH)
+console.log('Using base path:', base)
+
 export default defineConfig({
   title: "松ケ丘小学校おやじの会",
   description: "「できる時に、できる事を、できる人が」を合言葉に、児童、地域にかかわりながら、和気あいあい、楽しく活動している会です。",
   
   // GitHub Pages用の設定（組織のルートドメイン用）
-  base: '/',
+  base: base,
+  
+  // ダークモードを無効化
+  appearance: false,
   
   head: [
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
-    ['link', { rel: 'icon', type: 'image/png', href: '/favicon/icon-192x192.png' }],
-    ['link', { rel: 'apple-touch-icon', type: 'image/png', href: '/favicon/apple-touch-icon-180x180.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: `${base}favicon.png` }],
+    ['link', { rel: 'icon', type: 'image/png', href: `${base}favicon/icon-192x192.png` }],
+    ['link', { rel: 'apple-touch-icon', type: 'image/png', href: `${base}favicon/apple-touch-icon-180x180.png` }],
     ['meta', { property: 'og:url', content: 'http://matsu-oyaji.net/' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:title', content: '松ケ丘小学校おやじの会' }],
     ['meta', { property: 'og:description', content: '松ケ丘小学校おやじの会のホームページ。' }],
-    ['meta', { property: 'og:image', content: '/og.png' }],
+    ['meta', { property: 'og:image', content: `${base}og.png` }],
     // Google Analytics
     ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-N2DQM5FHTV' }],
     ['script', {}, "window.dataLayer = window.dataLayer || [];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js', new Date());\ngtag('config', 'G-N2DQM5FHTV');"]
@@ -24,16 +35,13 @@ export default defineConfig({
   lang: 'ja',
 
   themeConfig: {
-    logo: "/img/icon-160x160.png",
+    logo: `${base}img/icon-160x160.png`,
     
     nav: [
-      { text: "ホーム", link: "/" },
-      // { text: "活動内容", link: "/about/activities.html" },
-      // { text: "校長先生より", link: "/about/principal.html" },
-      { text: "おやじの会通信", link: "/letters.html" },
-      { text: "会則", link: "/minutes.html" },
-      // { text: "リンク", link: "/links.html" },
-      { text: "お問い合わせ", link: "/inquiry.html" }
+      { text: "🏠 ホーム", link: "/" },
+      { text: "📰 おやじの会通信", link: "/letters" },
+      { text: "📋 会則・議事録", link: "/minutes" },
+      { text: "📞 お問い合わせ", link: "/inquiry" }
     ],
 
     lastUpdated: {
