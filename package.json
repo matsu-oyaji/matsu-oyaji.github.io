@@ -10,10 +10,16 @@
     "build:github": "vitepress build && touch .vitepress/dist/.nojekyll",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["vitepress", "website", "matsugaoka", "oyaji"],
+  "keywords": [
+    "vitepress",
+    "website",
+    "matsugaoka",
+    "oyaji"
+  ],
   "author": "松ケ丘小学校おやじの会",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^24.1.0",
     "vitepress": "^1.6.3"
   },
   "optionalDependencies": {
