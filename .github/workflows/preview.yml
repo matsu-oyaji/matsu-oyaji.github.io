@@ -35,7 +35,9 @@ jobs:
 
       - name: Build
         run: |
-          npm run build
+          # PRプレビュー用にbase pathを設定してビルド
+          export VITE_BASE_PATH="/pr-${{ github.event.number }}/"
+          npx vitepress build --base "/pr-${{ github.event.number }}/"
           touch .vitepress/dist/.nojekyll
 
       - name: Deploy to GitHub Pages (PR Preview)
