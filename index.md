@@ -7,6 +7,24 @@ hero:
     alt: 松ケ丘小学校おやじの会ロゴ
   name: "松ケ丘小学校おやじの会"
   text: "「できる時に、できる事を、できる人が」を合言葉に、児童、地域にかかわりながら、和気あいあい、楽しく活動している会です。"
+  actions:
+    - theme: brand
+      text: お問い合わせ
+      link: /inquiry
+    - theme: alt
+      text: 活動について
+      link: '#おやじの会とは'
+
+features:
+  - icon: 🎪
+    title: 楽しいイベント企画
+    details: なつまつりをはじめ、子供たちが楽しめるイベントを企画・運営しています
+  - icon: 🤝
+    title: 地域との連携
+    details: 学校・PTA・地域と連携して、子供たちの成長を支える環境づくりに取り組んでいます
+  - icon: 👨‍👨‍👧‍👦
+    title: 仲間づくり
+    details: 年齢・職業・出身地も様々な約30名の会員が、情報交換や交流を楽しんでいます
 ---
 
 ## おやじの会とは
@@ -27,9 +45,6 @@ hero:
 
 [[Instagram](https://www.instagram.com/matsu.oyaji.moriya)] <br>
 <img src="/img/qr_instagram.png" width="140">
-
-[[LINE](https://lin.ee/nfztBh7I)] <br>
-<img src="/img/qr_line.png" width="140">
 :::
 
 ### 主な年間の活動内容
@@ -51,6 +66,9 @@ hero:
 
 ## お問い合わせ
 ご意見やご要望、入会のご相談などお気軽にお問い合わせください。
-下記のフォームから送信してください。
 
-[Googleフォームへジャンプします](https://forms.gle/SRHpkVtxykxSA6989)
+<div style="text-align: center; margin: 2rem 0;">
+  <a href="/inquiry" class="vp-button">
+    📝 お問い合わせページへ
+  </a>
+</div>

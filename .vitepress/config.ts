@@ -7,6 +7,9 @@ export default defineConfig({
   // GitHub Pages用の設定（組織のルートドメイン用）
   base: '/',
   
+  // ダークモードを無効化
+  appearance: false,
+  
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon/icon-192x192.png' }],
@@ -27,13 +30,10 @@ export default defineConfig({
     logo: "/img/icon-160x160.png",
     
     nav: [
-      { text: "ホーム", link: "/" },
-      // { text: "活動内容", link: "/about/activities.html" },
-      // { text: "校長先生より", link: "/about/principal.html" },
-      { text: "おやじの会通信", link: "/letters.html" },
-      { text: "会則", link: "/minutes.html" },
-      // { text: "リンク", link: "/links.html" },
-      { text: "お問い合わせ", link: "/inquiry.html" }
+      { text: "🏠 ホーム", link: "/" },
+      { text: "📰 おやじの会通信", link: "/letters" },
+      { text: "📋 会則・議事録", link: "/minutes" },
+      { text: "📞 お問い合わせ", link: "/inquiry" }
     ],
 
     lastUpdated: {

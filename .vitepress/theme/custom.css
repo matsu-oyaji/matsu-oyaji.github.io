@@ -1,161 +1,159 @@
-/* カスタムCSS - 背景色を白に設定 */
+/* カスタムCSS - 松ケ丘小おやじの会テーマ（黄色メイン） */
 
-/* 全体の背景色 */
+/* カスタムカラーパレット */
 :root {
-  --vp-c-bg: #ffffff;
-  --vp-c-bg-alt: #ffffff;
-  --vp-c-bg-soft: #ffffff;
-}
-
-/* ボディ全体の背景色 */
-body {
-  background-color: #ffffff !important;
-}
-
-/* メインコンテンツエリアの背景色 */
-.VPContent {
-  background-color: #ffffff !important;
-}
-
-/* サイドバーの背景色 */
-.VPSidebar {
-  background-color: #ffffff !important;
-}
-
-/* ナビゲーションバーの背景色 */
-.VPNav {
-  background-color: rgba(255, 255, 255, 0.95) !important;
-}
-
-/* ダークモードでも白背景を維持 */
-.dark {
-  --vp-c-bg: #ffffff !important;
-  --vp-c-bg-alt: #ffffff !important;
-  --vp-c-bg-soft: #ffffff !important;
-}
-
-.dark body {
-  background-color: #ffffff !important;
-  color: #213547 !important;
-}
-
-.dark .VPContent {
-  background-color: #ffffff !important;
-}
-
-.dark .VPSidebar {
-  background-color: #ffffff !important;
-}
-
-.dark .VPNav {
-  background-color: rgba(255, 255, 255, 0.95) !important;
+  /* ブランドカラー（黄色系） */
+  --vp-c-brand-1: #f1c40f;
+  --vp-c-brand-2: #f39c12;
+  --vp-c-brand-3: #e67e22;
+  --vp-c-brand-soft: #fff8dc;
+  
+  /* アクセントカラー */
+  --vp-c-yellow: #f1c40f;
+  --vp-c-yellow-light: #f7dc6f;
+  --vp-c-yellow-dark: #d68910;
+  --vp-c-yellow-soft: #fef9e7;
+  
+  /* 温かみのあるグレー */
+  --vp-c-text-1: #2c3e50;
+  --vp-c-text-2: #34495e;
+  --vp-c-text-3: #7f8c8d;
+  
+  /* 背景色（ほんのり黄色味） */
+  --vp-c-bg-soft: #fffef9;
+  --vp-c-bg-mute: #fefdf8;
+  
+  /* ボーダーカラー */
+  --vp-c-border: #f4d03f;
+  --vp-c-gutter: #f8f9fa;
+  
+  /* ナビゲーション */
+  --vp-nav-bg-color: rgba(255, 254, 249, 0.95);
+  
+  /* ヒーローセクション */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, var(--vp-c-brand-1) 0%, var(--vp-c-brand-2) 100%);
+  
+  /* リンクカラー */
+  --vp-c-text-link: var(--vp-c-brand-2);
+  --vp-c-text-link-hover: var(--vp-c-brand-3);
 }
 
 /* ヒーロー画像のスタイル調整 */
 .VPHero {
-  padding: 70px 24px 8px !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+  padding: 70px 24px 8px;
+  margin-top: 0;
+  margin-bottom: 0;
+  background: linear-gradient(135deg, var(--vp-c-yellow-soft) 0%, rgba(255, 255, 255, 0.95) 100%);
 }
 
 .VPHero .container {
-  flex-direction: column !important;
-  text-align: center !important;
-  max-width: 1152px !important;
-  margin: 0 auto !important;
-  display: flex !important;
-  align-items: center !important;
+  flex-direction: column;
+  text-align: center;
+  max-width: 1152px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .VPHero .main {
-  order: 2 !important;
-  text-align: center !important;
-  width: 100% !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
+  order: 2;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .VPHero .image {
-  order: 1 !important;
-  margin: 0.5rem auto 2.8rem auto !important;
-  display: flex !important;
-  justify-content: center !important;
-  width: 100% !important;
-  min-height: auto !important;
+  order: 1;
+  margin: 0.5rem auto 2.8rem auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-height: auto;
 }
 
 .VPHero .image-src {
-  max-width: 100% !important;
-  max-height: 400px !important;
-  width: auto !important;
-  height: auto !important;
-  display: block !important;
+  max-width: 100%;
+  max-height: 400px;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(241, 196, 15, 0.2);
 }
 
 /* VitePressのimage-containerの高さを調整 */
 .VPHero .image-container {
-  height: auto !important;
-  min-height: auto !important;
-  max-height: 400px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  height: auto;
+  min-height: auto;
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* モバイルでの画像コンテナ調整 */
 @media (max-width: 767px) {
   .VPHero .image-container {
-    max-height: 300px !important;
+    max-height: 300px;
+  }
+  
+  .VPHero .image-src {
+    box-shadow: 0 2px 8px rgba(241, 196, 15, 0.15);
   }
 }
 
 /* デスクトップでの画像コンテナ調整 */
 @media (min-width: 768px) {
   .VPHero .image-container {
-    max-height: 450px !important;
+    max-height: 450px;
   }
 }
 
 /* ヒーローセクションのテキストスタイル */
 .VPHero .name,
 .VPHero .name .clip {
-  font-size: 2.5rem !important;
-  font-weight: 600 !important;
-  color: #2c3e50 !important;
-  text-align: center !important;
-  margin: 0 auto 0.8rem auto !important;
-  line-height: 1.2 !important;
-  width: 100% !important;
-  display: block !important;
-  max-width: none !important;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 auto 0.8rem auto;
+  line-height: 1.2;
+  width: 100%;
+  display: block;
+  max-width: none;
+  background: var(--vp-home-hero-name-background);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--vp-home-hero-name-color);
 }
 
 .VPHero .text {
-  font-size: 1.1rem !important;
-  color: #555555 !important;
-  max-width: 900px !important;
-  text-align: center !important;
-  margin: 0 auto !important;
-  line-height: 1.6 !important;
-  font-weight: 400 !important;
-  padding: 0 1rem !important;
-  width: 100% !important;
-  display: block !important;
+  font-size: 1.1rem;
+  color: var(--vp-c-text-2);
+  max-width: 900px;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-weight: 400;
+  padding: 0 1rem;
+  width: 100%;
+  display: block;
 }
 
 /* VitePressのデフォルトスタイルを強制的に上書き */
 .VPHero .title {
-  text-align: center !important;
-  margin: 0 auto !important;
-  width: 100% !important;
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .VPHero h1 {
-  text-align: center !important;
-  margin: 0 auto 1.5rem auto !important;
-  width: 100% !important;
+  text-align: center;
+  margin: 0 auto 1.5rem auto;
+  width: 100%;
 }
 
 /* より強力なセレクターでVitePressのデフォルトスタイルを上書き */
@@ -163,97 +161,127 @@ body {
 .Layout .VPHero .name .clip,
 .VPHome .VPHero .name,
 .VPHome .VPHero .name .clip {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 100% !important;
-  display: block !important;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  display: block;
 }
 
 .Layout .VPHero .text,
 .VPHome .VPHero .text {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 100% !important;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 /* flex要素での中央寄せを強制 */
 .VPHero .main > * {
-  align-self: center !important;
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+  align-self: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ヘッダーとの重なり問題を解決 */
 .VPNavBar {
-  z-index: 10 !important;
+  z-index: 10;
+  background-color: var(--vp-nav-bg-color);
+  backdrop-filter: blur(8px);
 }
 
 .VPHero {
-  position: relative !important;
-  z-index: 1 !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* ナビゲーションスタイルの改善 */
+.VPNavBar .title {
+  color: var(--vp-c-text-1);
+  font-weight: 700;
+}
+
+.VPNavBar .VPNavBarTitle .title {
+  color: var(--vp-c-text-1);
+  font-weight: 700;
+}
+
+.VPNavBar .content .VPNavBarMenu .VPNavBarMenuLink {
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+  transition: color 0.25s;
+}
+
+.VPNavBar .content .VPNavBarMenu .VPNavBarMenuLink:hover {
+  color: var(--vp-c-brand-2);
+}
+
+/* アクティブなナビゲーションリンク */
+.VPNavBar .content .VPNavBarMenu .VPNavBarMenuLink.active {
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
 }
 
 /* レスポンシブ対応 */
 @media (min-width: 768px) {
   .VPHero {
-    padding: 90px 24px 16px !important;
+    padding: 90px 24px 16px;
   }
   
   .VPHero .container {
-    flex-direction: column !important;
-    text-align: center !important;
-    align-items: center !important;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
   }
   
   .VPHero .main {
-    order: 2 !important;
-    max-width: none !important;
-    text-align: center !important;
-    align-items: center !important;
-    justify-content: center !important;
+    order: 2;
+    max-width: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
   
   .VPHero .image {
-    order: 1 !important;
-    margin: 0.8rem auto 2.6rem auto !important;
+    order: 1;
+    margin: 0.8rem auto 2.6rem auto;
   }
   
   .VPHero .image-src {
-    max-width: 100% !important;
-    max-height: 500px !important;
-    width: auto !important;
-    height: auto !important;
+    max-width: 100%;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    box-shadow: 0 6px 20px rgba(241, 196, 15, 0.25);
   }
   
   .VPHero .name,
   .VPHero .name .clip {
-    font-size: 3rem !important;
-    text-align: center !important;
-    width: 100% !important;
-    margin: 0 auto 1.2rem auto !important;
+    font-size: 3rem;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto 1.2rem auto;
   }
   
   .VPHero .text {
-    font-size: 1.25rem !important;
-    max-width: 700px !important;
-    text-align: center !important;
-    width: 100% !important;
-    margin: 0 auto !important;
+    font-size: 1.25rem;
+    max-width: 700px;
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
   }
   
   .VPHero .title {
-    text-align: center !important;
-    margin: 0 auto !important;
-    width: 100% !important;
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
   }
   
   .VPHero h1 {
-    text-align: center !important;
-    margin: 0 auto 1.5rem auto !important;
-    width: 100% !important;
+    text-align: center;
+    margin: 0 auto 1.5rem auto;
+    width: 100%;
   }
 }
 
@@ -261,125 +289,367 @@ body {
 .VPDocFooter {
   text-align: center;
   padding: 2rem 0;
-  border-top: 1px solid #e1e5e9;
-  color: #6b7280;
-  background-color: #ffffff !important;
+  border-top: 1px solid var(--vp-c-border);
+  color: var(--vp-c-text-3);
+  background: linear-gradient(to right, var(--vp-c-yellow-soft), rgba(255, 255, 255, 0.95));
 }
 
-/* カスタムブロック（tip, warning等）の文字色改善 */
+/* カスタムブロック（tip, warning等）の改善 */
 .custom-block {
-  color: #2c3e50 !important;
+  color: var(--vp-c-text-1);
+  border-radius: 8px;
 }
 
 .custom-block.tip {
-  border-color: #42b883 !important;
+  border-color: var(--vp-c-brand-1);
+  background-color: var(--vp-c-yellow-soft);
 }
 
 .custom-block.tip .custom-block-title {
-  color: #2c3e50 !important;
-  font-weight: 600 !important;
+  color: var(--vp-c-brand-2);
+  font-weight: 600;
 }
 
 .custom-block p {
-  color: #2c3e50 !important;
+  color: var(--vp-c-text-1);
 }
 
 .custom-block a {
-  color: #3eaf7c !important;
-  font-weight: 500 !important;
+  color: var(--vp-c-text-link);
+  font-weight: 500;
+  transition: color 0.25s;
 }
 
 .custom-block a:hover {
-  color: #4abf8a !important;
+  color: var(--vp-c-text-link-hover);
 }
 
-/* ヘッダー・ナビゲーションの文字色改善 */
-.VPNavBar .title {
-  color: #2c3e50 !important;
-}
-
-.VPNavBar .VPNavBarTitle .title {
-  color: #2c3e50 !important;
-  font-weight: 600 !important;
-}
-
-.VPNavBar .content .VPNavBarMenu .VPNavBarMenuLink {
-  color: #2c3e50 !important;
-  font-weight: 500 !important;
-}
-
-.VPNavBar .content .VPNavBarMenu .VPNavBarMenuLink:hover {
-  color: #3eaf7c !important;
-}
-
-/* メインコンテンツの文字色改善 */
+/* メインコンテンツの改善 */
 .VPContent .content h1,
 .VPContent .content h2,
 .VPContent .content h3,
 .VPContent .content h4,
 .VPContent .content h5,
 .VPContent .content h6 {
-  color: #2c3e50 !important;
+  color: var(--vp-c-text-1);
+  position: relative;
+}
+
+/* 見出しに黄色のアクセント */
+.VPContent .content h2::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(to bottom, var(--vp-c-brand-1), var(--vp-c-brand-2));
+  border-radius: 2px;
 }
 
 .VPContent .content p {
-  color: #2c3e50 !important;
-  line-height: 1.7 !important;
+  color: var(--vp-c-text-1);
+  line-height: 1.7;
 }
 
 .VPContent .content a {
-  color: #3eaf7c !important;
-  font-weight: 500 !important;
+  color: var(--vp-c-text-link);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.25s;
+  border-bottom: 1px solid transparent;
 }
 
 .VPContent .content a:hover {
-  color: #4abf8a !important;
+  color: var(--vp-c-text-link-hover);
+  border-bottom-color: var(--vp-c-brand-2);
 }
 
-/* テーブルの文字色改善 */
+/* テーブルの改善 */
 .VPContent .content table {
-  color: #2c3e50 !important;
+  color: var(--vp-c-text-1);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .VPContent .content table th {
-  color: #2c3e50 !important;
-  font-weight: 600 !important;
-  background-color: #f8f9fa !important;
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--vp-c-yellow-soft), var(--vp-c-bg-soft));
 }
 
 .VPContent .content table td {
-  color: #2c3e50 !important;
+  color: var(--vp-c-text-1);
 }
 
-/* リストの文字色改善 */
+.VPContent .content table tr:nth-child(even) {
+  background-color: var(--vp-c-bg-soft);
+}
+
+/* リストの改善 */
 .VPContent .content ul li,
 .VPContent .content ol li {
-  color: #2c3e50 !important;
+  color: var(--vp-c-text-1);
+  position: relative;
+}
+
+.VPContent .content ul li::marker {
+  color: var(--vp-c-brand-2);
+}
+
+/* 引用の改善 */
+.VPContent .content blockquote {
+  border-left: 4px solid var(--vp-c-brand-1);
+  background: var(--vp-c-yellow-soft);
+  border-radius: 0 8px 8px 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+/* コードブロックの改善 */
+.VPContent .content div[class*="language-"] {
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ボタンスタイルの追加 */
+.vp-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--vp-c-brand-2), var(--vp-c-brand-3));
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: all 0.25s;
+  box-shadow: 0 2px 8px rgba(241, 196, 15, 0.3);
+  border-bottom: none !important;
+  text-underline-offset: unset !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.vp-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(241, 196, 15, 0.4);
+  color: white !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-2));
+}
+
+.vp-button:visited {
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* VitePressのデフォルトリンクスタイルを上書き */
+.VPContent .content a.vp-button,
+.vp-doc a.vp-button {
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  border-bottom: none !important;
+  text-underline-offset: unset !important;
+}
+
+.VPContent .content a.vp-button:hover,
+.vp-doc a.vp-button:hover {
+  color: white !important;
+  text-decoration: none !important;
+  border-bottom: none !important;
+  opacity: 1 !important;
+}
+
+.VPContent .content a.vp-button:visited,
+.vp-doc a.vp-button:visited {
+  color: white !important;
+  text-decoration: none !important;
 }
 
 /* ヒーローとメインコンテンツ間のスペース調整 */
 .VPContent .content {
-  padding-top: 16px !important;
+  padding-top: 16px;
 }
 
 .VPContent .content > h2:first-child,
 .VPContent .content > h1:first-child {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 /* ホーム画面のコンテンツ間隔調整 */
 .VPHome .VPContent {
-  padding-top: 0 !important;
+  padding-top: 0;
 }
 
 .VPHome .VPContent .content {
-  padding-top: 20px !important;
+  padding-top: 20px;
+}
+
+/* セクション区切りの追加 */
+.content-section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--vp-c-border);
+  margin-bottom: 40px;
+}
+
+.content-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
 /* モバイル専用の調整 */
 @media (max-width: 767px) {
   .VPHome .VPContent .content {
-    padding-top: 16px !important;
+    padding-top: 16px;
+  }
+  
+  .VPContent .content h2::before {
+    left: -12px;
+    width: 3px;
+    height: 16px;
+  }
+  
+  .content-section {
+    padding: 24px 0;
+    margin-bottom: 24px;
+  }
+}
+
+/* ページ内ナビゲーション（On this page）を非表示 */
+.VPLocalNavOutlineDropdown {
+  display: none !important;
+}
+
+.VPLocalNav .VPLocalNavOutlineDropdown {
+  display: none !important;
+}
+
+/* モバイルでのローカルナビも非表示 */
+@media (max-width: 768px) {
+  .VPLocalNav {
+    display: none !important;
+  }
+}
+
+/* 親しみやすさを演出するアニメーション */
+@keyframes gentle-bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/* ボタンのホバーアニメーション */
+.VPHero .actions .action:hover {
+  animation: gentle-bounce 0.6s ease;
+}
+
+/* 見出しのスタイル改善 */
+.VPContent .content h1 {
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 2rem;
+}
+
+.VPContent .content h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--vp-c-brand-1), var(--vp-c-brand-2));
+  border-radius: 2px;
+}
+
+/* 絵文字の強調 */
+.VPContent .content h3:has(+ p) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.VPContent .content p:has(strong:first-child) {
+  background: var(--vp-c-yellow-soft);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid var(--vp-c-brand-1);
+  margin: 1rem 0;
+}
+
+/* テーブルの行にホバー効果 */
+.VPContent .content table tbody tr {
+  transition: background-color 0.25s;
+}
+
+.VPContent .content table tbody tr:hover {
+  background-color: var(--vp-c-yellow-soft);
+}
+
+/* スクロールバーのカスタマイズ（Webkit） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vp-c-bg-soft);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand-1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-2);
+}
+
+/* レスポンシブ改善 */
+@media (max-width: 960px) {
+  .VPFeatures {
+    padding: 48px 24px;
+  }
+  
+  .VPHero .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .VPHero .action {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
+/* 印刷スタイル */
+@media print {
+  .VPNavBar,
+  .VPHero .actions,
+  .VPDocFooter {
+    display: none;
+  }
+  
+  .VPContent .content {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .VPContent .content a::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: var(--vp-c-text-3);
   }
 }
