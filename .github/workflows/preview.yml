@@ -1,0 +1,64 @@
+name: Deploy PR Preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+    if: github.event.action != 'closed'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies with Rollup fix
+        run: |
+          npm cache clean --force
+          rm -rf node_modules package-lock.json
+          npm install
+          npm install @rollup/rollup-linux-x64-gnu --save-optional
+          npm install --force
+
+      - name: Build
+        run: |
+          npm run build
+          touch .vitepress/dist/.nojekyll
+
+      - name: Deploy to GitHub Pages (PR Preview)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .vitepress/dist
+          destination_dir: pr-${{ github.event.number }}
+
+  cleanup-preview:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'closed'
+    steps:
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Remove preview directory
+        run: |
+          git rm -rf pr-${{ github.event.number }} || true
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "Remove PR #${{ github.event.number }} preview" || true
+          git push || true
