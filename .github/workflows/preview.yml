@@ -34,9 +34,10 @@ jobs:
           npm install --force
 
       - name: Build
+        env:
+          VITE_BASE_PATH: "/pr-${{ github.event.number }}/"
         run: |
           # PRプレビュー用にbase pathを設定してビルド
-          export VITE_BASE_PATH="/pr-${{ github.event.number }}/"
           npm run build
           touch .vitepress/dist/.nojekyll
 
@@ -46,6 +47,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .vitepress/dist
           destination_dir: pr-${{ github.event.number }}
+          keep_files: true
 
   cleanup-preview:
     runs-on: ubuntu-latest
