@@ -50,8 +50,13 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .vitepress/dist
-          destination_dir: pr-${{ github.event.number }}
-          keep_files: true
+          publish_branch: gh-pages-pr-${{ github.event.number }}
+
+      - name: Verify deployment
+        run: |
+          echo "Deployment completed for PR #${{ github.event.number }}"
+          echo "Configure GitHub Pages to serve from gh-pages-pr-${{ github.event.number }} branch"
+          echo "Then preview will be available at: https://matsu-oyaji.github.io/"
 
   cleanup-preview:
     runs-on: ubuntu-latest

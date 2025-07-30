@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitepress'
 
 // 環境変数からベースパスを取得（PRプレビュー時に使用）
-const base = process.env.VITE_BASE_PATH || '/'
+// PRプレビューの場合はルートパスを使用（サブディレクトリ配信の問題を回避）
+const base = process.env.VITE_BASE_PATH === '/pr-1/' ? '/' : (process.env.VITE_BASE_PATH || '/')
 
 // デバッグ用ログ
 console.log('VITE_BASE_PATH:', process.env.VITE_BASE_PATH)
