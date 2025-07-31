@@ -19,7 +19,6 @@
   "author": "松ケ丘小学校おやじの会",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^24.1.0",
     "vitepress": "^1.6.3"
   },
   "optionalDependencies": {
