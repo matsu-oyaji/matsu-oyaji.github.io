@@ -7,6 +7,9 @@ export default defineConfig({
   // GitHub Pages用の設定（組織のルートドメイン用）
   base: '/',
   
+  // クリーンURLを有効化（.html拡張子を除去）
+  cleanUrls: true,
+  
   // ダークモードを無効化
   appearance: false,
   
