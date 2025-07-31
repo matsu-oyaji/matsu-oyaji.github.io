@@ -204,8 +204,8 @@ Gitは通常macOSに標準でインストールされています。
    ```
    npm run dev
    ```
-2. 「Local: http://localhost:5173/」のようなメッセージが表示される
-3. ブラウザで http://localhost:5173/ にアクセス
+2. 「Local: `http://localhost:5173/`」のようなメッセージが表示される
+3. ブラウザで `http://localhost:5173/` にアクセス
 4. サイトが表示されれば成功
 
 **停止方法**: ターミナルで `Ctrl + C` を押す
