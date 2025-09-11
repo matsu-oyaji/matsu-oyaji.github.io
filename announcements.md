@@ -10,6 +10,8 @@ import { data as announcements } from './announcements.data.js'
 import { computed } from 'vue'
 import { 
   stripHtml, 
+  stripHtmlButKeepMarkdown,
+  renderSimpleMarkdown,
   formatDate, 
   getAnnouncementIcon, 
   getAnnouncementTypeClass,
@@ -30,6 +32,11 @@ function shouldTruncateContent(content) {
 function getTruncatedContentForListing(content) {
   return getTruncatedContent(content, TRUNCATE_SETTINGS.LISTING)
 }
+
+// Markdown装飾を保持した内容表示用
+function getFormattedContent(content) {
+  return renderSimpleMarkdown(stripHtmlButKeepMarkdown(content))
+}
 </script>
 
 <div class="announcements-list">
@@ -45,13 +52,13 @@ function getTruncatedContentForListing(content) {
     </div>
     <div class="announcement-content">
       <div v-if="shouldTruncateContent(announcement.excerpt)" class="content-preview">
-        <p>{{ getTruncatedContentForListing(announcement.excerpt) }}</p>
+        <p v-html="getTruncatedContentForListing(announcement.excerpt)"></p>
         <div class="read-more-link">
           <a :href="announcement.url" class="continue-reading">続きを読む →</a>
         </div>
       </div>
       <div v-else class="content-full">
-        <p>{{ stripHtml(announcement.excerpt) }}</p>
+        <p v-html="getFormattedContent(announcement.excerpt)"></p>
       </div>
       <div class="announcement-footer">
         <a :href="announcement.url" class="detail-link">詳細を見る →</a>

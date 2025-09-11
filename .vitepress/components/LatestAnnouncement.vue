@@ -10,13 +10,13 @@
       </div>
       <div class="announcement-content">
         <div v-if="shouldTruncateContent" class="content-preview">
-          <p>{{ truncatedContent }}</p>
+          <p v-html="truncatedContent"></p>
           <div class="read-more-inline">
             <a :href="latestAnnouncement.url" class="continue-reading">...続きを読む →</a>
           </div>
         </div>
         <div v-else class="content-full">
-          <p>{{ stripHtml(latestAnnouncement.excerpt) }}</p>
+          <p v-html="renderSimpleMarkdown(stripHtmlButKeepMarkdown(latestAnnouncement.excerpt))"></p>
         </div>
       </div>
       <div class="announcement-footer">
@@ -34,6 +34,8 @@ import { computed } from 'vue'
 import { data as announcements } from '../../announcements.data.js'
 import { 
   stripHtml, 
+  stripHtmlButKeepMarkdown,
+  renderSimpleMarkdown,
   formatDate, 
   getAnnouncementIcon, 
   getAnnouncementTypeClass,

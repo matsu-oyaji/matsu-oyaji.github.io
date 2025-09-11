@@ -1066,3 +1066,24 @@
     width: 100%;
   }
 }
+
+/* Markdown装飾スタイル（お知らせ概要表示用） */
+.announcement-content strong {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.announcement-content em {
+  font-style: italic;
+  color: var(--vp-c-text-2);
+}
+
+.announcement-content a {
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+
+.announcement-content a:hover {
+  color: var(--vp-c-brand-2);
+  text-decoration: underline;
+}
