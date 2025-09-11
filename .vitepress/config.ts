@@ -1,7 +1,8 @@
 import { defineConfig } from 'vitepress'
+import { withMermaid } from 'vitepress-plugin-mermaid'
 import { APP_CONFIG, URLS } from './constants/index.js'
 
-export default defineConfig({
+export default withMermaid(defineConfig({
   title: APP_CONFIG.SITE_NAME,
   description: `${APP_CONFIG.MOTTO}を合言葉に、児童、地域にかかわりながら、和気あいあい、楽しく活動している会です。`,
   
@@ -13,6 +14,13 @@ export default defineConfig({
   
   // ダークモードを無効化
   appearance: false,
+
+  // 本番ビルドから除外するファイル（開発時のみ表示）
+  srcExclude: [
+    'README.md',
+    'OPERATION.md',
+    'docs/manual/**/*.md'
+  ],
   
   head: [
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
@@ -50,4 +58,4 @@ export default defineConfig({
       copyright: ''
     }
   }
-})
+}))
