@@ -2,14 +2,14 @@
   <div v-if="latestAnnouncement" class="announcements-list">
     <div class="announcement-item" :class="getAnnouncementTypeClass(latestAnnouncement.frontmatter.type)">
       <div class="announcement-header">
-        <span class="announcement-icon">{{ getIcon(latestAnnouncement.frontmatter.type) }}</span>
+        <span class="announcement-icon">{{ getAnnouncementIcon(latestAnnouncement.frontmatter.type) }}</span>
         <span class="announcement-title">{{ latestAnnouncement.frontmatter.title }}</span>
         <span class="announcement-date">
           （{{ formatDate(latestAnnouncement.frontmatter.date, latestAnnouncement.frontmatter.time) }}更新）
         </span>
       </div>
       <div class="announcement-content">
-        <div v-if="shouldTruncate" class="content-preview">
+        <div v-if="shouldTruncateContent" class="content-preview">
           <p>{{ truncatedContent }}</p>
           <div class="read-more-inline">
             <a :href="latestAnnouncement.url" class="continue-reading">...続きを読む →</a>
@@ -32,6 +32,15 @@
 <script setup>
 import { computed } from 'vue'
 import { data as announcements } from '../../announcements.data.js'
+import { 
+  stripHtml, 
+  formatDate, 
+  getAnnouncementIcon, 
+  getAnnouncementTypeClass,
+  shouldTruncate,
+  getTruncatedContent,
+  TRUNCATE_SETTINGS
+} from '../utils/announcement-utils.js'
 
 // 表示可能な最初のお知らせを取得
 const latestAnnouncement = computed(() => {
@@ -40,48 +49,15 @@ const latestAnnouncement = computed(() => {
 })
 
 // 本文の切り詰め設定
-const TRUNCATE_LENGTH = 200 // 文字数制限
-const shouldTruncate = computed(() => {
+const shouldTruncateContent = computed(() => {
   if (!latestAnnouncement.value?.excerpt) return false
-  const textContent = stripHtml(latestAnnouncement.value.excerpt)
-  return textContent.length > TRUNCATE_LENGTH
+  return shouldTruncate(latestAnnouncement.value.excerpt, TRUNCATE_SETTINGS.HOMEPAGE)
 })
 
 const truncatedContent = computed(() => {
-  if (!latestAnnouncement.value?.excerpt || !shouldTruncate.value) return ''
-  const textContent = stripHtml(latestAnnouncement.value.excerpt)
-  const truncated = textContent.substring(0, TRUNCATE_LENGTH)
-  return truncated + '...'
+  if (!latestAnnouncement.value?.excerpt || !shouldTruncateContent.value) return ''
+  return getTruncatedContent(latestAnnouncement.value.excerpt, TRUNCATE_SETTINGS.HOMEPAGE)
 })
-
-// HTMLタグを除去するヘルパー関数
-function stripHtml(html) {
-  if (!html) return ''
-  if (typeof html !== 'string') return ''
-  return html.replace(/<[^>]*>/g, '').trim()
-}
-
-function getIcon(type) {
-  const icons = {
-    warning: '🚨',
-    info: '📢',
-    tip: '🎉',
-    danger: '⚠️'
-  }
-  return icons[type] || '📄'
-}
-
-function getAnnouncementTypeClass(type) {
-  return `announcement-${type}`
-}
-
-function formatDate(date, time) {
-  const d = new Date(date)
-  const year = d.getFullYear()
-  const month = String(d.getMonth() + 1).padStart(2, '0')
-  const day = String(d.getDate()).padStart(2, '0')
-  return `${year}年${month}月${day}日${time ? ` ${time}` : ''}`
-}
 </script>
 
 <style scoped>

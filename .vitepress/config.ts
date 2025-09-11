@@ -1,8 +1,9 @@
 import { defineConfig } from 'vitepress'
+import { APP_CONFIG, URLS } from './constants/index.js'
 
 export default defineConfig({
-  title: "松ケ丘小学校おやじの会",
-  description: "「できる時に、できる事を、できる人が」を合言葉に、児童、地域にかかわりながら、和気あいあい、楽しく活動している会です。",
+  title: APP_CONFIG.SITE_NAME,
+  description: `${APP_CONFIG.MOTTO}を合言葉に、児童、地域にかかわりながら、和気あいあい、楽しく活動している会です。`,
   
   // GitHub Pages用の設定（組織のルートドメイン用）
   base: '/',
@@ -17,10 +18,10 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon.png' }],
     ['link', { rel: 'icon', type: 'image/png', href: '/favicon/icon-192x192.png' }],
     ['link', { rel: 'apple-touch-icon', type: 'image/png', href: '/favicon/apple-touch-icon-180x180.png' }],
-    ['meta', { property: 'og:url', content: 'http://matsu-oyaji.net/' }],
+    ['meta', { property: 'og:url', content: URLS.WEBSITE_BASE }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:title', content: '松ケ丘小学校おやじの会' }],
-    ['meta', { property: 'og:description', content: '松ケ丘小学校おやじの会のホームページ。' }],
+    ['meta', { property: 'og:title', content: APP_CONFIG.SITE_NAME }],
+    ['meta', { property: 'og:description', content: `${APP_CONFIG.SITE_NAME}のホームページ。` }],
     ['meta', { property: 'og:image', content: '/og.png' }],
     // Google Analytics
     ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-N2DQM5FHTV' }],
@@ -45,7 +46,7 @@ export default defineConfig({
     },
 
     footer: {
-      message: '(c) 松ケ丘小学校おやじの会',
+      message: `(c) ${APP_CONFIG.ORGANIZATION}`,
       copyright: ''
     }
   }
