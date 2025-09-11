@@ -34,6 +34,7 @@ export default defineConfig({
     
     nav: [
       { text: "🏠 ホーム", link: "/" },
+      { text: "📢 お知らせ", link: "/announcements" },
       { text: "📰 おやじの会通信", link: "/letters" },
       { text: "📋 会則・議事録", link: "/minutes" },
       { text: "📞 お問い合わせ", link: "/inquiry" }
